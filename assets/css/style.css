@@ -50,6 +50,14 @@ body{
         }
         .bg-azzure{
             background-color: aqua;
+            z-index: 7;
         }
     }
+}
+
+.square-9{
+    width: calc(100% / 9)!important;
+}
+.square-7{
+    width: calc(100% / 7)!important;
 }
