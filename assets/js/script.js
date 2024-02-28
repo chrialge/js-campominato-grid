@@ -2,10 +2,19 @@ console.log('ciao')
 
 const containerElement = document.getElementById("container");
 console.log(containerElement);
+const difficultElement = document.getElementById('difficult')
 
 
 const numberCells = 100
-let numberCremental = []
+
+
+document.querySelector('form').addEventListener('submit', function(e){
+    e.preventDefault();
+    const valueDifficult = difficultElement.value
+    console.log(valueDifficult);
+    let numberCells = valueDifficult
+
+    let numberCremental = []
 for (let i = 0; i < numberCells; i++) {
     const numberIndex = i + 1
     console.log(numberIndex)
@@ -31,3 +40,5 @@ for (let i = 0; i < clickBoxElement.length; i++) {
         
     })
 }
+
+})
