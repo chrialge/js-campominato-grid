@@ -4,6 +4,11 @@ const containerElement = document.getElementById("container");
 console.log(containerElement);
 const difficultElement = document.getElementById('difficult')
 
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+  
+
 
 // quando clicco su avvia in base l,opzione scelta si puo avere una griglia
 document.querySelector('.button').addEventListener('click', function(e){
@@ -13,7 +18,7 @@ document.querySelector('.button').addEventListener('click', function(e){
     
     // questo ogni volta che clicco su avvia libera il container
     containerElement.innerHTML = "";
-
+    getRndInteger(1, numberCells);
     // il ciclo crea dei box in base al valore di numbercells
     for (let i = 0; i < numberCells; i++) {
         
