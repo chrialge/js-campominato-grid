@@ -19,12 +19,9 @@ document.querySelector('.button').addEventListener('click', function(e){
     // questo ogni volta che clicco su avvia libera il container
     containerElement.innerHTML = "";
     const mushroomArray = []
-    while (mushroomArray.length < 16) {
-        const mushroomNumber = getRndInteger(1, numberCells);
-        if(!mushroomArray.includes(mushroomNumber))
-        mushroomArray.push(mushroomNumber)
-    }
-    console.log(mushroomArray)
+    generateMushroom(numberCells, mushroomArray);
+
+
 
     // il ciclo crea dei box in base al valore di numbercells
     for (let i = 0; i < numberCells; i++) {
@@ -35,6 +32,8 @@ document.querySelector('.button').addEventListener('click', function(e){
             console.log('ciao')
             numberIndex = '🍄'
             clickEventMushroom(numberIndex);
+        }else{
+
         }
 
         // variabile di markup
@@ -46,19 +45,7 @@ document.querySelector('.button').addEventListener('click', function(e){
    
         //inserisce dentro container il valore di markup
         containerElement.insertAdjacentHTML('beforeend', markup);
-        const clickBoxElementInside = document.getElementsByClassName('box');
-        for (let i = 0; i < clickBoxElementInside.length; i++) {
-            const clickBox = clickBoxElementInside[i];
-    
-            // se vengono cliccati devo diventare azzurri e loggare il numero suo
-            clickBox.addEventListener('click', function(e){
-                e.preventDefault();
-                clickBox.classList.toggle('bg-azzure');
-                console.log(i + 1);
-                clickEventMushroom();
-                
-            });
-        };
+
     }
     // costante che racoglie tutti i box del dom
     const clickBoxElement = document.getElementsByClassName('box');
@@ -116,3 +103,10 @@ document.querySelector('.button').addEventListener('click', function(e){
 
 })
 
+function generateMushroom(numberCells, mushroomArray){
+    while (mushroomArray.length < 16) {
+        const mushroomNumber = getRndInteger(1, numberCells);
+        if(!mushroomArray.includes(mushroomNumber))
+        mushroomArray.push(mushroomNumber)
+    }
+}
