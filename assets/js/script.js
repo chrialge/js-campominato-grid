@@ -34,6 +34,7 @@ document.querySelector('.button').addEventListener('click', function(e){
         if(mushroomArray.includes(numberIndex)){
             console.log('ciao')
             numberIndex = '🍄'
+            clickEventMUshroom(numberIndex);
         }
 
         // variabile di markup
@@ -67,10 +68,12 @@ document.querySelector('.button').addEventListener('click', function(e){
 
         };
     }
+    
 
-
+    clickEvent(numberCells);
    //ciclo per dare un evento ad ogni box
-    for (let i = 0; i < clickBoxElement.length; i++) {
+   function clickEvent(numberCells){
+        for (let i = 0; i < numberCells; i++) {
         const clickBox = clickBoxElement[i];
 
         // se vengono cliccati devo diventare azzurri e loggare il numero suo
@@ -82,6 +85,23 @@ document.querySelector('.button').addEventListener('click', function(e){
         });
         
     };
+   };
+   function clickEventMUshroom(numberCells){
+    for (let i = 0; i < numberCells; i++) {
+    const clickBox = clickBoxElement[i];
+
+    // se vengono cliccati devo diventare azzurri e loggare il numero suo
+    clickBox.addEventListener('click', function(e){
+        e.preventDefault();
+        clickBox.classList.toggle('bg-red');
+        console.log(i + 1);
+        
+    });
+    
+};
+};
+
 
 
 });
+
