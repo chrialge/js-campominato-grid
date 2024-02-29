@@ -18,12 +18,23 @@ document.querySelector('.button').addEventListener('click', function(e){
     
     // questo ogni volta che clicco su avvia libera il container
     containerElement.innerHTML = "";
-    getRndInteger(1, numberCells);
+    const mushroomArray = []
+    while (mushroomArray.length < 16) {
+        const mushroomNumber = getRndInteger(1, numberCells);
+        if(!mushroomArray.includes(mushroomNumber))
+        mushroomArray.push(mushroomNumber)
+    }
+    console.log(mushroomArray)
+
     // il ciclo crea dei box in base al valore di numbercells
     for (let i = 0; i < numberCells; i++) {
         
         // variabile che racchiude i numeri tra 1 a 100 che sono uguali alla progressione dei cubi
-        const numberIndex = i + 1;
+        let numberIndex = i + 1;
+        if(mushroomArray.includes(numberIndex)){
+            console.log('ciao')
+            numberIndex = '🍄'
+        }
 
         // variabile di markup
         const markup = `
@@ -31,6 +42,7 @@ document.querySelector('.button').addEventListener('click', function(e){
             <h1>${numberIndex}</h1>
         </div>
         `;
+   
         //inserisce dentro container il valore di markup
         containerElement.insertAdjacentHTML('beforeend', markup);
         
