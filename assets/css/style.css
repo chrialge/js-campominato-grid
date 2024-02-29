@@ -46,11 +46,15 @@ body{
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: red;
+            background-color: yellowgreen;
         }
         .bg-azzure{
             background-color: aqua;
             z-index: 7;
+        }
+        .bg-red{
+            background-color: red;
+            z-index: 9;
         }
     }
 }
